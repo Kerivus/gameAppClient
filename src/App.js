@@ -36,7 +36,7 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const query = `https://whispering-earth-15835.herokuapp.com/searchgame?name=${this.input.value}`;
+    const query = `https://quiet-coast-55968.herokuapp.com/searchgame?name=${this.input.value}`;
     console.log(query);
     axios
       .get(query)
@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   viewDetails(id) {
-    const query = `https://whispering-earth-15835.herokuapp.com/getgame?id=${id}`;
+    const query = `https://quiet-coast-55968.herokuapp.com/getgame?id=${id}`;
     console.log(query);
     axios
       .get(query)
@@ -73,7 +73,7 @@ class App extends Component {
   }
 
   getGame(id){
-    const query = `https://whispering-earth-15835.herokuapp.com/getonegame?id=${id}`;
+    const query = `https://quiet-coast-55968.herokuapp.com/getonegame?id=${id}`;
     console.log(query);
     axios
       .get(query)
@@ -91,7 +91,7 @@ class App extends Component {
 
   getAllGames(){
     axios
-      .get('https://whispering-earth-15835.herokuapp.com/getallgames')
+      .get('https://quiet-coast-55968.herokuapp.com/getallgames')
       .then(result => {
         this.setState({ mostviewgame: result.data });
         console.log(this.state.mostviewgame);
@@ -109,7 +109,7 @@ class App extends Component {
           () =>{
             const {redirect} = this.state;
             if(redirect){
-              return <Redirect to={'https://whispering-earth-15835.herokuapp.com/search/'+this.input.value} />;
+              return <Redirect to={'https://quiet-coast-55968.herokuapp.com/search/'+this.input.value} />;
             }
 
             return ( 
@@ -133,11 +133,11 @@ class App extends Component {
           }
         }/>
 
-        <Route path="https://whispering-earth-15835.herokuapp.com/search/:gameTitle" exact strict render={
+        <Route path="https://quiet-coast-55968.herokuapp.com/search/:gameTitle" exact strict render={
           () =>{
             const {redirect2} = this.state;
             if(redirect2){
-              return <Redirect to={'https://whispering-earth-15835.herokuapp.com/gamedetails/'+this.state.clicked} />;
+              return <Redirect to={'https://quiet-coast-55968.herokuapp.com/gamedetails/'+this.state.clicked} />;
             }
             var data = this.state.gamelist;
             data = data.reverse();
@@ -171,7 +171,7 @@ class App extends Component {
           }
         }/>
         
-        <Route path="https://whispering-earth-15835.herokuapp.com/gamedetails/:id" exact strict render={
+        <Route path="https://quiet-coast-55968.herokuapp.com/gamedetails/:id" exact strict render={
           ()=> {
             var data = this.state.game;
             console.log(data);
