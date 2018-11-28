@@ -109,7 +109,7 @@ class App extends Component {
           () =>{
             const {redirect} = this.state;
             if(redirect){
-              return <Redirect to={'https://tranquil-fortress-36023.herokuapp.com/search/'+this.input.value} />;
+              return <Redirect to={'/search/'+this.input.value} />;
             }
 
             return ( 
@@ -133,11 +133,11 @@ class App extends Component {
           }
         }/>
 
-        <Route path="https://tranquil-fortress-36023.herokuapp.com/search/:gameTitle" exact strict render={
+        <Route path="/search/:gameTitle" exact strict render={
           () =>{
             const {redirect2} = this.state;
             if(redirect2){
-              return <Redirect to={'https://tranquil-fortress-36023.herokuapp.com/gamedetails/'+this.state.clicked} />;
+              return <Redirect to={'/gamedetails/'+this.state.clicked} />;
             }
             var data = this.state.gamelist;
             data = data.reverse();
@@ -171,7 +171,7 @@ class App extends Component {
           }
         }/>
         
-        <Route path="https://tranquil-fortress-36023.herokuapp.com/gamedetails/:id" exact strict render={
+        <Route path="/gamedetails/:id" exact strict render={
           ()=> {
             var data = this.state.game;
             console.log(data);
